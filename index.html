@@ -94,7 +94,7 @@
           <div class="row d-flex flex-column justify-content-center">
             <h1 class="text-center primary-clps font-size-100 font-weight-bold" >Colapse</h1>
             <span class="text-justify m-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur corrupti facilis, possimus natus reprehenderit asperiores eius beatae ipsam quod nobis placeat quibusdam inventore unde libero sit, illo eum praesentium odio!</span>
-            <button class="btn btn-success btn-lg" type="button">Jugar</button>
+            <button class="btn btn-success btn-lg" type="button" onclick="startGame()">Jugar</button>
           </div>
         </div>
           
@@ -106,5 +106,10 @@
 
   <!-- Halfmoon JS -->
   <script src="js/halfmoon.min.js"></script>
+  <script>
+    function startGame(){
+      window.open("./html/game.html","_self");
+    }
+  </script>
 </body>
 </html>
