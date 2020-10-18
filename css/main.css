@@ -5,3 +5,16 @@
 .btn-primary-clps{
     background-color: #FF9800;
 }
+
+.loseta{
+    background-color: #8d6a36;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.vacia{
+    background-color: beige;
+    width: 200px;
+    height: 200px;
+}
