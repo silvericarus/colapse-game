@@ -25,7 +25,23 @@
 <body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="false" data-sidebar-shortcut-enabled="false" data-set-preferred-mode-onload="true">
   <!-- Modals go here -->
   <!-- Reference: https://www.gethalfmoon.com/docs/modal -->
-
+  <div class="modal" id="modal-1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <h5 class="modal-title">Choose a start point</h5>
+        <div class="text-center">
+          <img src="../img/human-nobg.png" class="img-fluid" alt="human" id="human">
+        </div>
+        <p>
+          This is your character. Now you must choose an start point from 1 to 8 to start the game. 
+        </p>
+        <div class="text-right mt-20"> <!-- text-right = text-align: right, mt-20 = margin-top: 2rem (20px) -->
+          <input type="number" class="form-control" name="startpoint" id="startpoint" min="1" max="8">
+          <button id="playBtn" class="btn btn-primary" role="button">Play!</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Page wrapper start -->
   <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="full-height">
 
@@ -44,7 +60,8 @@
     <div class="sidebar">
       <!-- Reference: https://www.gethalfmoon.com/docs/sidebar -->
       <div class="sidebar-menu">
-        <i>meter d8 aqui</i> 
+        <input type="text" class="form-control" value="" readonly="readonly" id="d8">
+        <button id="diceBtn" class="btn btn-btn-primary" role="button">Roll the dice!</button>
       </div>
       
     </div>
@@ -57,41 +74,66 @@
             <table class="table-bordered">
               <tr>
                 <td class="loseta">
-                  <div class="num">1</div>
-                  <div class="dir">→</div>
+                  <div>
+                    <div class="num" id="1">1</div>
+                    <div class="dir">→</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
                 <td class="loseta">
-                  <div class="num">4</div>
-                  <div class="dir">↓</div>
+                  <div>
+                    <div class="num" id="4">4</div>
+                    <div class="dir">↓</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
                 <td class="loseta">
-                  <div class="num">8</div>
-                  <div class="dir">↓</div>
+                  <div>
+                    <div class="num" id="8">8</div>
+                    <div class="dir">↓</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td class="loseta">
-                  <div class="num">5</div>
-                  <div class="dir">→</div>
+                  <div>
+                    <div class="num" id="5">5</div>
+                    <div class="dir">→</div>
+                    <div class="esp"></div>
+                    <div></div>
+                  </div>
                 </td>
                 <td class="vacia"></td>
                 <td class="loseta">
-                  <div class="num">7</div>
-                  <div class="dir">←</div>
+                  <div>
+                    <div class="num" id="7">7</div>
+                    <div class="dir">←</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td class="loseta">
-                  <div class="num">2</div>
-                  <div class="dir">↑</div>
+                  <div>
+                   <div class="num" id="2">2</div>
+                    <div class="dir">↑</div> 
+                    <div class="esp"></div>
+                  </div>
                 </td>
                 <td class="loseta">
-                  <div class="num">6</div>
-                  <div class="dir">↑</div>
+                  <div>
+                    <div class="num" id="6">6</div>
+                    <div class="dir">↑</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
                 <td class="loseta">
-                  <div class="num">3</div>
-                  <div class="dir">←</div>
+                  <div>
+                    <div class="num" id="3">3</div>
+                    <div class="dir">←</div>
+                    <div class="esp"></div>
+                  </div>
                 </td>
               </tr>
             </table>
@@ -105,5 +147,7 @@
 
   <!-- Halfmoon JS -->
   <script src="../js/halfmoon.min.js"></script>
+  <script src="../js/chance.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
