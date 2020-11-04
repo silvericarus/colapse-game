@@ -73,10 +73,19 @@ var _rollbarConfig = {
     <div class="sidebar">
       <!-- Reference: https://www.gethalfmoon.com/docs/sidebar -->
       <div class="sidebar-menu">
-        <input type="text" class="form-control" value="" readonly="readonly" id="d8">
-        <button id="diceBtn" class="btn btn-btn-primary" role="button">Roll the dice!</button>
+        <div>
+          <h4>Movement Buttons</h4>
+          <button class="btn" id="btnMoveUp" onclick="move(1)">↑</button>
+          <button class="btn" id="btnMoveLeft">←</button>
+          <button class="btn" id="btnMoveRight">→</button>
+          <button class="btn" id="btnMoveDown">↓</button>
+        </div>
+        <div>
+          <h4>Dice Roll</h4>
+          <input type="text" class="form-control" value="" readonly="readonly" id="d8">
+          <button id="diceBtn" class="btn btn-btn-primary" role="button">Roll the dice!</button>
+        </div>
       </div>
-      
     </div>
     <!-- Sidebar end -->
 
