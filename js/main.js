@@ -22,10 +22,6 @@ function rollDice8(){
 
 var diceBtn = document.getElementById("diceBtn");
 diceBtn.onclick = rollDice8;
-var btnMoveUp = document.getElementById("btnMoveUp");
-var btnMoveLeft = document.getElementById("btnMoveLeft");
-var btnMoveRight = document.getElementById("btnMoveRight");
-var btnMoveDown = document.getElementById("btnMoveDown");
 function move(dir){
     switch(dir) {
         case 1: //Up
@@ -47,6 +43,18 @@ function move(dir){
         case 3: //Right
             break;
         case 4: //Down
+            var losPos = Array.from(human.parentNode.parentNode.parentNode.parentNode.children).findIndex(element => 
+                element.children[0].children[2].children[0] == human);
+            if (losPos != -1){
+                var losParDes = human.parentNode.parentNode.parentNode.parentNode.nextElementSibling;
+                var arrayLosParDes = Array.from(losParDes.children);
+                var losParElement;
+                losParElement = arrayLosParDes[losPos];
+                if(losParElement.children[0].children[2].classList.contains("esp")){
+                    losParElement.appendChild(human);
+                    btnMoveDown.classList.add("disabled");
+                }
+            }
             break;
         default:
             break;
