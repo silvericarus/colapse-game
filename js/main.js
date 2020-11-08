@@ -28,9 +28,9 @@ function move(dir){
             var losPos = Array.from(human.parentNode.parentNode.parentNode.parentNode.children).findIndex(element => 
                 element.children[0].children[2].children[0] == human);
             if (losPos != -1){
-                var losParDes = human.parentNode.parentNode.parentNode.parentNode.previousElementSibling;
-                var arrayLosParDes = Array.from(losParDes.children);
-                var losParElement;
+                let losParDes = human.parentNode.parentNode.parentNode.parentNode.previousElementSibling;
+                let arrayLosParDes = Array.from(losParDes.children);
+                let losParElement;
                 losParElement = arrayLosParDes[losPos];
                 if(losParElement.children[0].children[2].classList.contains("esp")){
                     losParElement.appendChild(human);
@@ -39,16 +39,34 @@ function move(dir){
             }
             break;
         case 2: //Left
+            var losPos = Array.from(human.parentNode.parentNode.parentNode.parentNode.children).findIndex(element => 
+                element.children[0].children[2].children[0] == human);
+            if (losPos != -1){
+                let losParElement = human.parentNode.parentNode.parentNode.previousElementSibling;
+                if(losParElement.children[0].children[2].classList.contains("esp")){
+                    losParElement.appendChild(human);
+                    btnMoveLeft.classList.add("disabled");
+                }
+            }
             break;
         case 3: //Right
+            var losPos = Array.from(human.parentNode.parentNode.parentNode.parentNode.children).findIndex(element => 
+                element.children[0].children[2].children[0] == human);
+            if (losPos != -1){
+                let losParElement = human.parentNode.parentNode.parentNode.nextElementSibling;
+                if(losParElement.children[0].children[2].classList.contains("esp")){
+                    losParElement.appendChild(human);
+                    btnMoveRight.classList.add("disabled");
+                }
+            }
             break;
         case 4: //Down
             var losPos = Array.from(human.parentNode.parentNode.parentNode.parentNode.children).findIndex(element => 
                 element.children[0].children[2].children[0] == human);
             if (losPos != -1){
-                var losParDes = human.parentNode.parentNode.parentNode.parentNode.nextElementSibling;
-                var arrayLosParDes = Array.from(losParDes.children);
-                var losParElement;
+                let losParDes = human.parentNode.parentNode.parentNode.parentNode.nextElementSibling;
+                let arrayLosParDes = Array.from(losParDes.children);
+                let losParElement;
                 losParElement = arrayLosParDes[losPos];
                 if(losParElement.children[0].children[2].classList.contains("esp")){
                     losParElement.appendChild(human);
