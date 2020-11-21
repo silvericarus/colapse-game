@@ -14,11 +14,6 @@ playBtn.onclick = function(){
     halfmoon.toggleModal("modal-1");
 }
 
-function rollDice8(){
-    var valued8 = chance.d8();
-    var d8 = document.getElementById("d8");
-    d8.value = valued8;
-}
 
 var diceBtn = document.getElementById("diceBtn");
 diceBtn.onclick = rollDice8;
@@ -76,7 +71,84 @@ function move(dir){
             break;
         default:
             break;
-    }
+    }   
+}
 
+function translateMoveArrow(arrow) {
+    switch (arrow) {
+        case "↑":
+            return 1;
+        case "←":
+            return 2;
+        case "→":
+            return 3;
+        case "↓":
+            return 4;
+    }
+}
+
+function rollDice8(){
+    var valued8 = chance.d8();
+    var d8 = document.getElementById("d8");
+    collapseLoseta(valued8);
+    d8.value = valued8;
     
+}
+
+function collapseLoseta(num) {
+    //Checkear si loseta objetivo es td.vacia o td#1-8
+    var losetaObjetivo = document.getElementById(num).parentElement.parentElement;
+    var dir = losetaObjetivo.children[0].getElementsByClassName("dir")[0];
+    switch(translateMoveArrow(dir.innerText)){
+        case 1://Up
+            var losPos = Array.from(losetaObjetivo.parentElement.children).findIndex(element => 
+            element.children[0].children[0].innerText == num);
+            if(losPos != -1){
+                var losParDes = losetaObjetivo.parentElement.previousElementSibling;
+                var arrayLosParDes = Array.from(losParDes.children);
+                var losParElement;
+                losParElement = arrayLosParDes[losPos];
+                var newLoseta = document.createElement("td");
+                newLoseta.classList.add("vacia");
+                losetaObjetivo.parentElement.insertBefore(newLoseta,losetaObjetivo);
+                losParElement.appendChild(losetaObjetivo);
+            }
+            break;
+        case 2://Left
+            var losPos = Array.from(losetaObjetivo.parentElement.children).findIndex(element => 
+            element.children[0].children[0].innerText == num);
+            if (losPos != -1){
+                let losParElement = losetaObjetivo.previousElementSibling;
+                var newLoseta = document.createElement("td");
+                newLoseta.classList.add("vacia");
+                losetaObjetivo.insertAdjacentElement("afterend",newLoseta);
+                losParElement.appendChild(losetaObjetivo);
+            }
+            break;
+        case 3://Right
+        var losPos = Array.from(losetaObjetivo.parentElement.children).findIndex(element => 
+            element.children[0].children[0].innerText == num);
+            if (losPos != -1){
+                let losParElement = losetaObjetivo.nextElementSibling;
+                var newLoseta = document.createElement("td");
+                newLoseta.classList.add("vacia");
+                losetaObjetivo.insertAdjacentElement("afterend",newLoseta);
+                losParElement.appendChild(losetaObjetivo);
+            }
+            break;
+        case 4://Down
+        var losPos = Array.from(losetaObjetivo.parentElement.children).findIndex(element => 
+            element.children[0].children[0].innerText == num);
+            if(losPos != -1){
+                var losParDes = losetaObjetivo.parentElement.nextElementSibling;
+                var arrayLosParDes = Array.from(losParDes.children);
+                var losParElement;
+                losParElement = arrayLosParDes[losPos];
+                var newLoseta = document.createElement("td");
+                newLoseta.classList.add("vacia");
+                losetaObjetivo.parentElement.insertBefore(newLoseta,losetaObjetivo);
+                losParElement.appendChild(losetaObjetivo);
+            }
+            break;
+    }
 }
